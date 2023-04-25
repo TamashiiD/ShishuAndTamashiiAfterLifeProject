@@ -1,7 +1,15 @@
-const FinalResults = () => {
+import { connect } from "react-redux"
 
-    return(<>
-    </>)
+
+
+
+const FinalResults = (props) => {
+
+    return(
+    <>
+
+    </>
+    )
 }
 
-export default FinalResults
+export default connect(mstp=>mstp, {}) (FinalResults)

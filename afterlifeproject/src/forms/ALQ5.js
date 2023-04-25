@@ -1,7 +1,13 @@
 import { NavLink } from "react-router-dom"
+import { connect } from "react-redux"
+import { radioChange } from "../FormState/actionCreators"
 
+const ALQ5 = (props) => {
 
-const ALQ5 = () => {
+    const { radioChange } = props
+    const handleChange = (e) => {
+        radioChange(e.target.name, e.target.value)
+    }
     return (
 
         <div className="App">
@@ -9,15 +15,15 @@ const ALQ5 = () => {
                 <div>
                     <p>Question 5:</p>
                     <label>
-                        <input type="radio" name="q5" value="option1" />
+                        <input type="radio" name="Question5" value="option1" onChange={handleChange} />
                         Option 1
                     </label>
                     <label>
-                        <input type="radio" name="q5" value="option2" />
+                        <input type="radio" name="Question5" value="option2" onChange={handleChange} />
                         Option 2
                     </label>
                     <label>
-                        <input type="radio" name="q5" value="option3" />
+                        <input type="radio" name="Question5" value="option3" onChange={handleChange} />
                         Option 3
                     </label>
                 </div>
@@ -32,5 +38,5 @@ const ALQ5 = () => {
 
 
 
-export default ALQ5
+export default connect(mstp => mstp, { radioChange })(ALQ5)
 

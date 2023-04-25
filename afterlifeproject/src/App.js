@@ -14,10 +14,9 @@ import ALQ7 from './forms/ALQ7';
 import ALQ8 from './forms/ALQ8';
 import ALQ9 from './forms/ALQ9';
 import FinalResults from './forms/FinalResults';
+import { connect } from 'react-redux';
 
-function App() {
-
-
+function App(props) {
 
   return (
     <BrowserRouter>
@@ -42,4 +41,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect(mstp=>mstp, {})(App);
