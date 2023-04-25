@@ -1,14 +1,25 @@
 import { NavLink, Route, Routes } from "react-router-dom"
 import ALQ2 from "./ALQ2"
 import { connect } from "react-redux"
-import { radioChange } from "../FormState/actionCreators"
+import { onbutton, offButton, radioChange } from "../FormState/actionCreators"
 
 
 const ALQ1 = (props) => {
-const {radioChange} = props
+const {onbutton, offButton, radioChange} = props
+
+
 const handleChange = (e) => {
 radioChange(e.target.name, e.target.value)
+onbutton()
 }
+
+const handlebuttontoggle = () => {
+offButton()
+}
+console.log(props.togglebutton.togglebutton
+    )
+
+
     return (
         <div className="App">
             <form>
@@ -31,7 +42,7 @@ radioChange(e.target.name, e.target.value)
             </form>
 
             <nav>
-             <NavLink to="2"><button disabled={props.togglebutton} >NEXT</button></NavLink>&nbsp;
+             <NavLink to="2"><button disabled={props.togglebutton.buttonoff} onClick={handlebuttontoggle} >NEXT</button></NavLink>&nbsp;
             </nav>
         
         </div>
@@ -39,4 +50,4 @@ radioChange(e.target.name, e.target.value)
     )
 }
 
-export default connect(mstp=>mstp, {radioChange}) (ALQ1)
+export default connect(mstp=>mstp, {onbutton, radioChange, offButton}) (ALQ1)

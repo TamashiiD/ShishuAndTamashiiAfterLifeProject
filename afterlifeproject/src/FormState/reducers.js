@@ -1,5 +1,5 @@
 import { combineReducers } from "redux"
-import { BUTTON_ON, CHANGE_RADIO, RESET_FORM } from "./actionCreators"
+import { BUTTON_OFF, BUTTON_ON, CHANGE_RADIO, RESET_FORM } from "./actionCreators"
 
 
 
@@ -17,21 +17,31 @@ const initialFormState = {
     Question7: "",
     Question8: "",
     Question9: "",
-    togglebutton: true
+   
 
 }
 
 function formReducer(state = initialFormState, action) {
-switch(action.type){
-    case CHANGE_RADIO:
-        return({...state, [action.payload1]: action.payload2})
-    case BUTTON_ON:
-        return({...state, togglebutton: false})
-    case RESET_FORM:
-        return initialFormState
-    default:
-        return state
+    switch (action.type) {
+        case CHANGE_RADIO:
+            return ({ ...state, [action.payload1]: action.payload2 })
+        case RESET_FORM:
+            return initialFormState
+        default:
+            return state
+    }
 }
+const initialButtonState = {buttonoff: true}
+
+function togglebutton(state = initialButtonState, action) {
+    switch (action.type) {
+        case BUTTON_ON:
+            return ({buttonoff: false })
+        case BUTTON_OFF:
+            return ({ buttonoff: true })
+        default:
+            return state
+    }
 }
 
-export default combineReducers({formReducer})
+export default combineReducers({ formReducer, togglebutton })
