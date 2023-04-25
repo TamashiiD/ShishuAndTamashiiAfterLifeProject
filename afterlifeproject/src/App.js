@@ -27,8 +27,8 @@ const {formReset} = props
     <BrowserRouter>
     <h1> The After Life</h1>
     <nav>
-        <NavLink to="/"><button>Home</button></NavLink>&nbsp;
-        <button onClick={handleFormReset}>RESET QUIZ</button>
+        <NavLink to="/"><button onClick={handleFormReset}>Home</button></NavLink>&nbsp;
+      
       </nav>
       <Routes>
         <Route path="/" element={<MainLayout />} />
