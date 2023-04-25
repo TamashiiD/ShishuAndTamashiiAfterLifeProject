@@ -1,5 +1,5 @@
 import { combineReducers } from "redux"
-import { CHANGE_RADIO } from "./actionCreators"
+import { CHANGE_RADIO, RESET_FORM } from "./actionCreators"
 
 
 
@@ -24,6 +24,9 @@ function formReducer(state = initialFormState, action) {
 switch(action.type){
     case CHANGE_RADIO:
         return({...state, [action.payload1]: action.payload2})
+
+    case RESET_FORM:
+        return initialFormState
     default:
         return state
 }

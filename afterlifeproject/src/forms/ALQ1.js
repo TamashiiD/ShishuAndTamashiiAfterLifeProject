@@ -31,7 +31,7 @@ radioChange(e.target.name, e.target.value)
             </form>
 
             <nav>
-                <NavLink to="2"><button>NEXT</button></NavLink>&nbsp;
+             <NavLink to="2"><button>NEXT</button></NavLink>&nbsp;
             </nav>
         
         </div>

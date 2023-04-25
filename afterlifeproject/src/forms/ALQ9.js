@@ -8,6 +8,7 @@ const ALQ9 = (props) => {
     const handleChange = (e) => {
         radioChange(e.target.name, e.target.value)
     }
+   
     return (
 
         <div className="App">

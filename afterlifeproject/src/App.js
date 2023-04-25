@@ -15,14 +15,20 @@ import ALQ8 from './forms/ALQ8';
 import ALQ9 from './forms/ALQ9';
 import FinalResults from './forms/FinalResults';
 import { connect } from 'react-redux';
+import { formReset } from './FormState/actionCreators';
 
 function App(props) {
-
+const {formReset} = props
+  const handleFormReset = () =>{
+    formReset()
+  }
+  
   return (
     <BrowserRouter>
     <h1> The After Life</h1>
     <nav>
         <NavLink to="/"><button>Home</button></NavLink>&nbsp;
+        <button onClick={handleFormReset}>RESET QUIZ</button>
       </nav>
       <Routes>
         <Route path="/" element={<MainLayout />} />
@@ -41,4 +47,4 @@ function App(props) {
   );
 }
 
-export default connect(mstp=>mstp, {})(App);
+export default connect(mstp=>mstp, {formReset})(App);
