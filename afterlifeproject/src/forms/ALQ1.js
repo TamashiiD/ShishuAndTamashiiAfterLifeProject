@@ -16,8 +16,7 @@ const ALQ1 = (props) => {
     const handlebuttontoggle = () => {
         offButton()
     }
-    console.log(props.togglebutton.togglebutton
-    )
+   
 
 
     return (
