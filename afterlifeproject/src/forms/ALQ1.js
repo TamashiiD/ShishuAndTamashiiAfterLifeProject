@@ -5,18 +5,18 @@ import { onbutton, offButton, radioChange } from "../FormState/actionCreators"
 
 
 const ALQ1 = (props) => {
-const {onbutton, offButton, radioChange} = props
+    const { onbutton, offButton, radioChange } = props
 
 
-const handleChange = (e) => {
-radioChange(e.target.name, e.target.value)
-onbutton()
-}
+    const handleChange = (e) => {
+        radioChange(e.target.name, e.target.value)
+        onbutton()
+    }
 
-const handlebuttontoggle = () => {
-offButton()
-}
-console.log(props.togglebutton.togglebutton
+    const handlebuttontoggle = () => {
+        offButton()
+    }
+    console.log(props.togglebutton.togglebutton
     )
 
 
@@ -26,15 +26,15 @@ console.log(props.togglebutton.togglebutton
                 <div>
                     <p>Question 1:</p>
                     <label>
-                        <input type="radio"  name="Question1" value="option1" onChange={handleChange}/>
+                        <input type="radio" name="Question1" value="option1" onChange={handleChange} />
                         Option 1
                     </label>
                     <label>
-                        <input type="radio"  name="Question1" value="option2" onChange={handleChange} />
+                        <input type="radio" name="Question1" value="option2" onChange={handleChange} />
                         Option 2
                     </label>
                     <label>
-                        <input type="radio"  name="Question1" value="option3" onChange={handleChange} />
+                        <input type="radio" name="Question1" value="option3" onChange={handleChange} />
                         Option 3
                     </label>
                 </div>
@@ -42,12 +42,12 @@ console.log(props.togglebutton.togglebutton
             </form>
 
             <nav>
-             <NavLink to="2"><button disabled={props.togglebutton.buttonoff} onClick={handlebuttontoggle} >NEXT</button></NavLink>&nbsp;
+                <NavLink to="2"><button disabled={props.togglebutton.buttonoff} onClick={handlebuttontoggle} >NEXT</button></NavLink>&nbsp;
             </nav>
-        
+
         </div>
 
     )
 }
 
-export default connect(mstp=>mstp, {onbutton, radioChange, offButton}) (ALQ1)
+export default connect(mstp => mstp, { onbutton, radioChange, offButton })(ALQ1)

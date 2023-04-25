@@ -15,7 +15,7 @@ const ALQ2 = (props) => {
 
     const handlebuttontoggle = () => {
         offButton()
-        }
+    }
     return (
 
         <div className="App">

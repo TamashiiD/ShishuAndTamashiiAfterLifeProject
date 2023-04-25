@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 import { connect } from "react-redux"
-import {onbutton, offButton, radioChange } from "../FormState/actionCreators"
+import { onbutton, offButton, radioChange } from "../FormState/actionCreators"
 
 const ALQ6 = (props) => {
 
@@ -12,9 +12,8 @@ const ALQ6 = (props) => {
 
     const handlebuttontoggle = () => {
         offButton()
-        }
+    }
 
-    console.log(props)
     return (
 
         <div className="App">
@@ -46,6 +45,6 @@ const ALQ6 = (props) => {
     )
 }
 
-export default connect(mstp => mstp, {onbutton, offButton, radioChange })(ALQ6)
+export default connect(mstp => mstp, { onbutton, offButton, radioChange })(ALQ6)
 
 

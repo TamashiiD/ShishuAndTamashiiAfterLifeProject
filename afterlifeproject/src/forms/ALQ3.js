@@ -11,8 +11,8 @@ const ALQ3 = (props) => {
     }
     const handlebuttontoggle = () => {
         offButton()
-        
-        }
+
+    }
 
 
     return (
@@ -47,6 +47,6 @@ const ALQ3 = (props) => {
     )
 }
 
-export default connect(mstp => mstp, {onbutton, offButton, radioChange })(ALQ3)
+export default connect(mstp => mstp, { onbutton, offButton, radioChange })(ALQ3)
 
 
