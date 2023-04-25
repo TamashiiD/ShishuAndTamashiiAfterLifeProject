@@ -1,10 +1,9 @@
 import { NavLink, Route, Routes } from "react-router-dom"
 import ALQ2 from "./ALQ2"
-import { memo } from "react"
 
 
 
-const ALQ1 = memo = (() => {
+const ALQ1 = () => {
 
     return (
         <div className="App">
@@ -36,6 +35,6 @@ const ALQ1 = memo = (() => {
         </div>
 
     )
-})
+}
 
 export default ALQ1

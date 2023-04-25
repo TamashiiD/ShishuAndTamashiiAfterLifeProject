@@ -1,7 +1,11 @@
+import { NavLink } from "react-router-dom"
 
 
-const ALQ6 = () =>{
-    return(
+const ALQ6 = () => {
+    return (
+
+        <div className="App">
+            <form>
 
                 <div>
                     <p>Question 6:</p>
@@ -17,12 +21,18 @@ const ALQ6 = () =>{
                         <input type="radio" name="q6" value="option3" />
                         Option 3
                     </label>
-                </div >
+                </div>
+            </form>
 
-        
+            <nav>
+                <NavLink to="7"><button>NEXT</button></NavLink>&nbsp;
+            </nav>
+        </div >
+
+
     )
 }
 
-
+export default ALQ6
 
 
