@@ -4,13 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { createStore } from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './FormState/reducers';
 
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage' 
 import { PersistGate } from 'redux-persist/integration/react'
+import thunk from 'redux-thunk'
 
 
 const persistConfig = {
@@ -19,9 +20,9 @@ const persistConfig = {
 }
 
 const persistedReducer = persistReducer(persistConfig, reducers)
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-
-  let store = createStore(persistedReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+  let store = createStore(persistedReducer, composeEnhancers(applyMiddleware(thunk)))
   let persistor = persistStore(store)
 
 

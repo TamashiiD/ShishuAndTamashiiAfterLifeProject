@@ -22,14 +22,16 @@ const {formReset} = props
   const handleFormReset = () =>{
     formReset()
   }
-  
+
   return (
     <BrowserRouter>
+    <div className="App">
     <h1> The After Life</h1>
     <nav>
         <NavLink to="/"><button onClick={handleFormReset}>Home</button></NavLink>&nbsp;
       
       </nav>
+    </div>
       <Routes>
         <Route path="/" element={<MainLayout />} />
         <Route path="1" element={<ALQ1 />} />
