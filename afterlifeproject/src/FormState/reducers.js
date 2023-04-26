@@ -40,6 +40,7 @@ const initialButtonState = {
     button6: true,
     button7: true,
     button8: true,
+    button9: true,
 
 
 }
