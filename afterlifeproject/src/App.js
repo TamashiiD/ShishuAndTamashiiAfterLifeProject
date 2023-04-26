@@ -15,13 +15,15 @@ import ALQ8 from './forms/ALQ8';
 import ALQ9 from './forms/ALQ9';
 import FinalResults from './forms/FinalResults';
 import { connect } from 'react-redux';
-import { formReset } from './FormState/actionCreators';
+import { formReset, resetButtons } from './FormState/actionCreators';
 
 function App(props) {
-const {formReset} = props
+const {resetButtons, formReset} = props
+
   const handleFormReset = () =>{
     formReset()
     localStorage.clear();
+    resetButtons()
   }
 
 
@@ -52,4 +54,4 @@ const {formReset} = props
   );
 }
 
-export default connect(mstp=>mstp, {formReset})(App);
+export default connect(mstp=>mstp, {resetButtons, formReset})(App);

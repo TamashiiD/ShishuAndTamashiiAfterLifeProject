@@ -12,12 +12,12 @@ const ALQ1 = (props) => {
 
     const handleChange = (e) => {
         radioChange(e.target.name, e.target.value)
-        onbutton()
+        onbutton("button1", valueOfChoice)
         localStorage.setItem(e.target.name, e.target.value)
     }
 
-    const handlebuttontoggle = () => {
-        offButton()
+    const handlebuttontoggle = (e) => {
+        offButton(e.target.value, valueOfChoice)
     }
 
 
@@ -44,7 +44,7 @@ const ALQ1 = (props) => {
             </form>
 
             <nav>
-                <NavLink to="2"><button disabled={props.togglebutton.buttonoff} onClick={handlebuttontoggle} >NEXT</button></NavLink>&nbsp;
+                <NavLink to="2"><button value="button1" disabled={props.togglebutton.button1} onClick={handlebuttontoggle} >NEXT</button></NavLink>&nbsp;
             </nav>
 
         </div>
