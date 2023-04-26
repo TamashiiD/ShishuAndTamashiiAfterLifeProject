@@ -5,14 +5,19 @@ import { onbutton, offButton, radioChange } from "../FormState/actionCreators"
 const ALQ4 = (props) => {
 
     const { onbutton, offButton, radioChange } = props
+
+    const valueOfChoice = localStorage.getItem("Question4")
+
     const handleChange = (e) => {
         radioChange(e.target.name, e.target.value)
         onbutton()
+        localStorage.setItem(e.target.name, e.target.value)
+
     }
 
     const handlebuttontoggle = () => {
         offButton()
-        }
+    }
     return (
 
         <div className="App">
@@ -20,15 +25,15 @@ const ALQ4 = (props) => {
                 <div>
                     <p>Question 4:</p>
                     <label>
-                        <input type="radio" name="Question4" value="option1" onChange={handleChange} />
+                        <input type="radio" checked={valueOfChoice === "option1" ? true : false} name="Question4" value="option1" onChange={handleChange} />
                         Option 1
                     </label>
                     <label>
-                        <input type="radio" name="Question4" value="option2" onChange={handleChange} />
+                        <input type="radio" checked={valueOfChoice === "option2" ? true : false} name="Question4" value="option2" onChange={handleChange} />
                         Option 2
                     </label>
                     <label>
-                        <input type="radio" name="Question4" value="option3" onChange={handleChange} />
+                        <input type="radio" checked={valueOfChoice === "option3" ? true : false} name="Question4" value="option3" onChange={handleChange} />
                         Option 3
                     </label>
                 </div>
@@ -42,7 +47,7 @@ const ALQ4 = (props) => {
     )
 }
 
-export default connect(mstp => mstp, {onbutton, offButton, radioChange })(ALQ4)
+export default connect(mstp => mstp, { onbutton, offButton, radioChange })(ALQ4)
 
 
 

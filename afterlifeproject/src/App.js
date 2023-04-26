@@ -21,7 +21,10 @@ function App(props) {
 const {formReset} = props
   const handleFormReset = () =>{
     formReset()
+    localStorage.clear();
   }
+
+
 
   return (
     <BrowserRouter>

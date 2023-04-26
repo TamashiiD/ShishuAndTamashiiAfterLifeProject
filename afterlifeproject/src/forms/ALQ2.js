@@ -8,9 +8,15 @@ import { onbutton, offButton, radioChange } from "../FormState/actionCreators"
 const ALQ2 = (props) => {
 
     const { onbutton, offButton, radioChange } = props
+
+    const valueOfChoice = localStorage.getItem("Question2")
+
+
     const handleChange = (e) => {
         radioChange(e.target.name, e.target.value)
         onbutton()
+        localStorage.setItem(e.target.name, e.target.value)
+
     }
 
     const handlebuttontoggle = () => {
@@ -23,15 +29,15 @@ const ALQ2 = (props) => {
                 <div>
                     <p>Question 2:</p>
                     <label>
-                        <input type="radio" name="Question2" value="option1" onChange={handleChange} />
+                        <input type="radio" checked={valueOfChoice === "option1" ? true : false} name="Question2" value="option1" onChange={handleChange} />
                         Option 1
                     </label>
                     <label>
-                        <input type="radio" name="Question2" value="option2" onChange={handleChange} />
+                        <input type="radio" checked={valueOfChoice === "option2" ? true : false} name="Question2" value="option2" onChange={handleChange} />
                         Option 2
                     </label>
                     <label>
-                        <input type="radio" name="Question2" value="option3" onChange={handleChange} />
+                        <input type="radio" checked={valueOfChoice === "option3" ? true : false} name="Question2" value="option3" onChange={handleChange} />
                         Option 3
                     </label>
                 </div>
