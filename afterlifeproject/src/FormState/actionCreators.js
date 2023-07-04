@@ -1,35 +1,25 @@
 
-
-export const CHANGE_RADIO = "CHANGE_RADIO"
 export const RESET_FORM = "RESET_FORM"
-export const BUTTON_ON = "BUTTON_ON"
-export const BUTTON_OFF = "BUTTON_OFF"
 export const RESET_BUTTONS = "RESET_BUTTONS"
+export const FULL_RESPONSE = "FULL_RESPONSE"
+export const TAKE_PICTURE = "TAKE_PICTURE"
+export const CLEAR_PICTURE = "CLEAR_PICTURE"
 
 
-
-
-
-
-
-export const radioChange = (name, value) =>{
-      return({type: CHANGE_RADIO, payload1: name, payload2: value })
-
+export const takeThePicture = (url) => {
+    return ({type:TAKE_PICTURE, payload: url})
 }
-
-export const onbutton = (buttonname, condition) => {
-    return({type: BUTTON_ON, payload1: buttonname, payload2: condition})
+export const getFullResponse = (response, target) => {
+    return({type: FULL_RESPONSE, payload: response, payload2: target})
 }
-
-export function offButton(buttonname, condition){
-return({type: BUTTON_OFF, payload1: buttonname, payload2: condition})
-}
-
 
 export function formReset(){
     return({type: RESET_FORM})
 }
 
+export function clearPhoto(){
+    return ({type: CLEAR_PICTURE})
+}
 
 export const resetButtons = () => {
 return ({type: RESET_BUTTONS})

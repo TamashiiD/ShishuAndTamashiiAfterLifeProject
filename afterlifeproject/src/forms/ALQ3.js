@@ -1,57 +1,63 @@
 import { NavLink } from "react-router-dom"
 import { connect } from "react-redux"
 import { onbutton, offButton, radioChange } from "../FormState/actionCreators"
+import { useEffect, useState } from "react"
+import { getFullResponse } from "../FormState/actionCreators"
+
+
+
+
+
+
 
 const ALQ3 = (props) => {
-
-    const { onbutton, offButton, radioChange } = props
-
-    const valueOfChoice = localStorage.getItem("Question3")
-
-
+    const { getFullResponse } = props
+    const [fullresponse, setFullResponse] = useState("")
+    const [button, setButton] = useState(true)
+    const [value, setValue] = useState("")
     const handleChange = (e) => {
-        radioChange(e.target.name, e.target.value)
-        onbutton("button3", valueOfChoice)
-        localStorage.setItem(e.target.name, e.target.value)
-
+        e.preventDefault()
+        getFullResponse(e.target.value, e.target.name)
+        setFullResponse(e.target.value)
+        if (fullresponse.length > 25) {
+            setButton(false)
+            localStorage.setItem("inputValue3", e.target.value)
+        }
     }
-    const handlebuttontoggle = (e) => {
-        offButton(e.target.value, valueOfChoice)
-    }
-
-
+    useEffect(() => {
+        setValue(localStorage.getItem("inputValue3"));
+    }, []);
     return (
-
         <div className="App">
             <form>
                 <div>
-
-                    <p>Question 3:</p>
+                    <p>Question 3: How would you describe the overall journey of your life so far? </p>
                     <label>
-                        <input type="radio" checked={valueOfChoice === "option1" ? true : false} name="Question3" value="option1" onChange={handleChange} />
-                        Option 1
-                    </label>
-                    <label>
-                        <input type="radio" checked={valueOfChoice === "option2" ? true : false} name="Question3" value="option2" onChange={handleChange} />
+                        <textarea
+                            style={{ height: '100px', width: '600px', overflowWrap: 'break-word', wordWrap: 'break-word' }}
+                            value={value}
+                            name="Q1"
+                            onChange={handleChange}
+                        />                    </label>
+                    {/* <label>
+                        <input type="radio" checked={valueOfChoice === "option2" ? true : false} name="Question1" value="option2" onChange={handleChange} />
                         Option 2
                     </label>
                     <label>
-                        <input type="radio" checked={valueOfChoice === "option3" ? true : false} name="Question3" value="option3" onChange={handleChange} />
+                        <input type="radio" checked={valueOfChoice === "option3" ? true : false} name="Question1" value="option3" onChange={handleChange} />
                         Option 3
-                    </label>
+                    </label> */}
                 </div>
+
             </form>
 
-
-
             <nav>
-                <NavLink to="4"><button disabled={props.togglebutton.button3} onClick={handlebuttontoggle}>NEXT</button></NavLink>&nbsp;
+                <NavLink to="9"><button value="button1" disabled={button} >NEXT</button></NavLink>&nbsp;
             </nav>
+
         </div>
 
     )
 }
 
-export default connect(mstp => mstp, { onbutton, offButton, radioChange })(ALQ3)
-
-
+export default connect(mstp => mstp, { getFullResponse })(ALQ3)

@@ -1,5 +1,5 @@
 import { combineReducers } from "redux"
-import { RESET_BUTTONS, BUTTON_OFF, BUTTON_ON, CHANGE_RADIO, RESET_FORM } from "./actionCreators"
+import { CLEAR_PICTURE, FULL_RESPONSE, RESET_FORM, TAKE_PICTURE } from "./actionCreators"
 
 
 
@@ -8,65 +8,34 @@ import { RESET_BUTTONS, BUTTON_OFF, BUTTON_ON, CHANGE_RADIO, RESET_FORM } from "
 
 
 const initialFormState = {
-    Question1: "",
-    Question2: "",
-    Question3: "",
-    Question4: "",
-    Question5: "",
-    Question6: "",
-    Question7: "",
-    Question8: "",
-    Question9: "",
-   
-
+  
 }
 
-function formReducer(state = initialFormState, action) {
+function fullResponse(state = initialFormState, action) {
     switch (action.type) {
-        case CHANGE_RADIO:
-            return ({ ...state, [action.payload1]: action.payload2 })
+        case FULL_RESPONSE:
+            return ({ ...state, [action.payload2] : action.payload })
         case RESET_FORM:
             return initialFormState
         default:
             return state
     }
 }
-const initialButtonState = {
-    button1: true,
-    button2: true,
-    button3: true,
-    button4: true,
-    button5: true,
-    button6: true,
-    button7: true,
-    button8: true,
-    button9: true,
 
-
+const initialState = {
+    picture: ""
 }
 
-function togglebutton(state = initialButtonState, action) {
-    switch (action.type) {
-        case BUTTON_ON:
-            if(action.payload1){
-                return({...state, [action.payload1]: false})
-            }
-            if (action.payload2){
-               return ({...state, [action.payload1]: false }) 
-            }
-            
-        case BUTTON_OFF:
-            if(action.payload1){
-                return({...state, [action.payload1]: false})
-            }
-            if (action.payload2){
-                return ({...state, [action.payload1]: false }) 
-             }
-        case RESET_BUTTONS:
-            return initialButtonState
+function savePicture(state= initialState, action){
+    switch(action.type){
+        case TAKE_PICTURE:
+            return({picture: action.payload})
+        case CLEAR_PICTURE:
+            return({picture: ""})
+        case RESET_FORM:
+            return({picture: ""})
         default:
             return state
     }
 }
-
-export default combineReducers({ formReducer, togglebutton })
+export default combineReducers({ savePicture, fullResponse })
