@@ -2,29 +2,45 @@ import { NavLink } from "react-router-dom"
 import { connect } from "react-redux"
 import { onbutton, offButton, radioChange } from "../FormState/actionCreators"
 import { useState } from "react"
+import axios from "axios"
+
 
 const ALQ9 = (props) => {
 
     // const { onbutton, offButton, radioChange } = props
    const [image, setImage] = useState("")
    const [button , setButton] =useState(true)
+   const[button2, setButton2] =useState(true)
 
     const previewImage = (e) => {
         setButton(false)
+        setButton2(false)
        e.preventDefault()
        console.log(e.target.files[0])
        const src = URL.createObjectURL(e.target.files[0])
-       setImage(src)
-       
-        
-    
+       setImage(src) 
     }
     
-    const handlesubmit = (e) => {
+    const clearimage = (e) => {
         e.preventDefault()
-        
-
+        setImage("")
+        setButton2(true)
+        setButton(true)
     }
+
+//Use this later to make the API Call
+    // const handlesubmit = (e) => {
+    //     e.preventDefault()
+    //     axios.post()
+    //     .then(res=> {
+    //          console.log(res.data)
+    //     }
+    //     ).catch(err=> {
+    //         console.log(err)
+    //     })
+    // }
+
+
 
     // const valueOfChoice = localStorage.getItem("Question9")
 
@@ -63,7 +79,8 @@ const ALQ9 = (props) => {
 
                     {image.length > 0 ? <div> <img className="makeitsmaller" src={image} alt="slefie" /> </div> : <div> Please Uploade an Image </div>}
                     <div>
-                        <button onClick={handlesubmit} disabled={button} >CLICK HERE TO SEE RESULTS</button>
+                    <NavLink to="10"><button disabled={button} >CLICK HERE TO SEE RESULTS</button></NavLink> 
+                        <button onClick={clearimage} disabled={button2}> CLEAR IMAGE </button>
                     </div>
                  
                 </div>
