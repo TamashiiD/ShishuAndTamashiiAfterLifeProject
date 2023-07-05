@@ -31,7 +31,7 @@ const ALQ3 = (props) => {
         <div className="App">
             <form>
                 <div>
-                    <p>Question 3: How would you describe the overall journey of your life so far? </p>
+                    <p>Question 3:When you think about your life as a whole, what are some things that bring you the most fulfillment or satisfaction? </p>
                     <label>
                         <textarea
                             style={{ height: '100px', width: '600px', overflowWrap: 'break-word', wordWrap: 'break-word' }}

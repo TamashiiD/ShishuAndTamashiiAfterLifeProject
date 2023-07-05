@@ -28,7 +28,7 @@ const ALQ1 = (props) => {
         <div className="App">
             <form>
                 <div>
-                    <p>Question 1: Are there any aspects of your life that you feel particularly fulfilled or content with?</p>
+                    <p>Question 1: How would you describe the current state of your life?</p>
                     <label>
                         <textarea
                             style={{ height: '100px', width: '600px', overflowWrap: 'break-word', wordWrap: 'break-word' }}

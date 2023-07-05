@@ -29,7 +29,7 @@ const ALQ2 = (props) => {
         <div className="App">
             <form>
                 <div>
-                    <p>Question 2: What have been some significant experiences or moments that have shaped your perspective?</p>
+                    <p>Question 2: Can you tell me about some recent experiences or events that have had an impact on you?</p>
                     <label>
                         <textarea
                             style={{ height: '100px', width: '600px', overflowWrap: 'break-word', wordWrap: 'break-word' }}

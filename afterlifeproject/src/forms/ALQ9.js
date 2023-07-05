@@ -48,7 +48,7 @@ const ALQ9 = (props) => {
                         <input type="file" accept="image/*" capture="camera" onChange={previewImage} />
                     </label>
 
-                    {image.length > 0 ? <div> <img className="makeitsmaller" src={image} alt="slefie" /> </div> : <div> Please Uploade an Image </div>}
+                    {image.length > 0 ? <div> <img className="makeitsmaller" src={image} alt="slefie" /> </div> : <div> Please Uploade an Image of Anything. </div>}
                     <div>
                     <NavLink to="10"><button disabled={button} >CLICK HERE TO SEE RESULTS</button></NavLink> 
                         <button onClick={clearimage} disabled={button2}> CLEAR IMAGE </button>
