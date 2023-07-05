@@ -1,6 +1,4 @@
-import logo from './logo.svg';
 import './App.css';
-import AfterLifeForm from './forms/ALQ1';
 import ALQ1 from './forms/ALQ1';
 import ALQ2 from './forms/ALQ2';
 import ALQ3 from './forms/ALQ3';

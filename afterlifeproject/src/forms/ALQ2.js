@@ -1,6 +1,5 @@
 import { connect } from "react-redux"
 import { NavLink } from "react-router-dom"
-import { onbutton, offButton, radioChange } from "../FormState/actionCreators"
 import { useEffect, useState } from "react"
 import { getFullResponse } from "../FormState/actionCreators"
 
@@ -33,7 +32,7 @@ const ALQ2 = (props) => {
                     <label>
                         <textarea
                             style={{ height: '100px', width: '600px', overflowWrap: 'break-word', wordWrap: 'break-word' }}
-                            value={value}
+                            value={value ? value : undefined}
                             name="Q1"
                             onChange={handleChange}
                         />                    </label>

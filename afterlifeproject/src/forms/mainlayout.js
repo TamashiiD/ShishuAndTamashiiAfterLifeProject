@@ -1,5 +1,4 @@
-import { NavLink, Route, Routes } from "react-router-dom"
-import ALQ1 from "./ALQ1"
+import { NavLink} from "react-router-dom"
 
 const MainLayout = () => {
     return (
