@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.makeitsmaller{
+  max-width: 75rem;
+  max-height: 75rem;
+}
